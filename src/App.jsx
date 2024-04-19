@@ -4,6 +4,7 @@ import { BarChart } from "./components/Bar"
 import { LineGraph } from "./components/Line"
 import { PieChart } from "./components/Pie"
 import "./index.css"
+import { RadarChart } from "./components/Radar"
 
 function App() {
   const [modalOpen,setModalOpen] = useState(false)
@@ -26,6 +27,8 @@ function App() {
         return <BarChart className="shadow-lg rounded-lg bg-white p-4" />;
       case 'pie':
         return <PieChart className="shadow-lg rounded-lg bg-white p-4" />;
+      case 'radar':
+        return <RadarChart className="shadow-lg rounded-lg bg-white p-4" />;
       default:
         return null
     }
@@ -40,6 +43,9 @@ function App() {
       </div>
       <div className="w-1/2 p-2" onClick={()=>openModal('pie')}> 
         <PieChart className="shadow-lg rounded-lg bg-white p-4 border border-gray-300" />
+      </div>
+      <div className="w-1/2 p-2" onClick={()=>openModal('radar')}> 
+        <RadarChart className="shadow-lg rounded-lg bg-white p-4 border border-gray-300" />
       </div>
       <Modal show ={modalOpen} close={closeModal}>
         {renderChart()}
